@@ -1,0 +1,717 @@
+:root {
+  --bg: #0b0813;
+  --bg-alt: #120e20;
+  --card: #171228;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f0fc;
+  --text-muted: #9b94b0;
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --accent: #c084fc;
+}
+
+[data-theme="light"] {
+  --bg: #faf8ff;
+  --bg-alt: #f1edfa;
+  --card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #1a162b;
+  --text-muted: #675f82;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --accent: #9333ea;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.wrap {
+  width: min(1140px, 92%);
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 8, 19, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.brand b {
+  color: var(--primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.menu {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.theme {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: 60px 0 50px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* --- Mini Profile Badge (تم تكبيره وتنسيقه ليصبح أكثر وضوحاً وفخامة) --- */
+.mini-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  padding: 8px 20px 8px 10px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* تكبير الصورة من 44px إلى 62px لتكون ملامحها واضحة */
+.mini-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.mini-profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.mini-profile-info strong {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.mini-profile-info small {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.mini-status {
+  font-size: 0.75rem;
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.15);
+  padding: 4px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.kicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.visual {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal {
+  background: #06040a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.terminalbar {
+  background: #110d1c;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal pre {
+  padding: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  color: #a78bfa;
+}
+
+.terminal em { color: #38bdf8; font-style: normal; }
+.terminal i { color: #f43f5e; font-style: normal; }
+.terminal b { color: #4ade80; }
+
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--card);
+}
+
+.btn.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+}
+
+.social a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.social a:hover {
+  color: var(--primary);
+}
+
+/* Sections General */
+section {
+  padding: 70px 0;
+}
+
+section.alt {
+  background: var(--bg-alt);
+}
+
+section label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin: 8px 0 32px;
+}
+
+section h2 span {
+  color: var(--accent);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+}
+
+.about .big {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.about p {
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.points > div {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.points b {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.points strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.points small {
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.skills {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.skills article, .services article {
+  background: var(--card);
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.skills article b, .services article b {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.skills h3, .services h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.skills p, .services p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.services {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.projects {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.projects article {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.projects img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #110d1c;
+}
+
+.projects div {
+  padding: 16px;
+}
+
+.projects small {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  font-size: 0.75rem;
+}
+
+.projects h3 {
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline article {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.timeline b {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  font-size: 0.82rem;
+}
+
+.timeline h3 {
+  font-size: 1.1rem;
+  margin: 6px 0 2px;
+}
+
+.timeline h4 {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.timeline p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+}
+
+.contact .links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact .links a {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.contact .links small {
+  display: block;
+  color: var(--primary);
+  font-size: 0.78rem;
+  margin-bottom: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+form input, form textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about, .contact {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}
+
+/* --- Social Badges with Icons --- */
+.social-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+.social-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.social-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.social-btn.github:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.social-btn.linkedin:hover {
+  background: rgba(10, 102, 194, 0.2);
+  border-color: #0a66c2;
+  color: #38bdf8;
+}
+
+.social-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: #25d366;
+  color: #4ade80;
+}
+
+.projects article p {
+  font-size: 0.88rem;
+  color: #9b94b0;
+  margin: 8px 0 12px;
+  line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags span {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- تأثير حركة وتوهج أزرار الـ Hero (Contact Me & CV) --- */
+.actions .btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* تأثير الارتفاع والبروز عند التمرير بالماوس */
+.actions .btn:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* تأثير الإضاءة البنفسجية للزر الأساسي (Contact Me) */
+.actions .btn.primary:hover {
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.45), 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+/* تأثير الإضاءة للزر الثاني (View / Download CV) */
+.actions .btn:not(.primary):hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2), 0 0 12px rgba(56, 189, 248, 0.15);
+}
+/* --- 1. تأثير حركة وبروز المشاريع --- */
+.projects article {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.projects article img {
+  transition: transform 0.4s ease;
+}
+
+.projects article:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #38bdf8;
+  box-shadow: 0 16px 32px rgba(56, 189, 248, 0.18), 0 0 12px rgba(56, 189, 248, 0.2);
+  z-index: 2;
+}
+
+.projects article:hover img {
+  transform: scale(1.05);
+}
+
+/* تنسيق تاجز التقنيات في المشاريع */
+.projects article p {
+  font-size: 0.88rem;
+  color: #9b94b0;
+  margin: 8px 0 12px;
+  line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags span {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- 2. تأثير حركة وتوهج الأزرار (Contact Me & CV) --- */
+.actions .btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.actions .btn:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.actions .btn.primary:hover {
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.45), 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+.actions .btn:not(.primary):hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2), 0 0 12px rgba(56, 189, 248, 0.15);
+}
